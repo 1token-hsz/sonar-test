@@ -23,6 +23,8 @@ public class IndexController {
         if (StringUtils.isNotBlank(name)) {
             jsonObject.put("welcome", "hello, " + name + "!");
         }
+        System.out.println("Fuck");
+        System.out.println(1/0);
         jsonObject.put("welcome1", "1");
         jsonObject.put("welcome6", "6");
         logger.info("result msg: {}", jsonObject.toJSONString());
