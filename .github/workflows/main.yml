@@ -44,11 +44,14 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Run sonarqube
         run: sonar-scanner
-          -Dsonar.projectKey=sonar-test
           -Dsonar.sources=$GITHUB_WORKSPACE
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
           -Dsonar.java.binaries=$GITHUB_WORKSPACE/**
+          -Dsonar.projectKey=${{ github.event.repository.name }}
+          -Dsonar.pullrequest.key=${{ github.event.number }}
+          -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
+          -Dsonar.pullrequest.base=master
+          -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
 
 
