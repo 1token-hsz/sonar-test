@@ -40,9 +40,6 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: Warchant/setup-sonar-scanner@56b341fee26f84914160306fe4450178f398dd47
         uses: Warchant/setup-sonar-scanner@v2
-        with:
-          # Sonar-scanner version
-          version: 4.2.0.1873 # default is 4.2.0.1873
       - run: sonar-scanner
           -Dsonar.projectKey=${{ github.event.repository.name }}
           -Dsonar.pullrequest.key=${{ github.event.number }}
