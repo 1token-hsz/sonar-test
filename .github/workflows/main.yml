@@ -42,14 +42,13 @@ jobs:
         uses: Warchant/setup-sonar-scanner@v2
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      - run: sonar-scanner
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+      - name: Run sonarqube
+        run: sonar-scanner
+          -Dsonar.organization=1corp
+          -Dsonar.projectKey=sonar-test
+          -Dsonar.sources=$GITHUB_WORKSPACE
+          -Dsonar.host.url=${{ secrets.SONAR_URL }}
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.projectKey=${{ github.event.repository.name }}
-          -Dsonar.pullrequest.key=${{ github.event.number }}
-          -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
-          -Dsonar.pullrequest.base=develop
           -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
-          -Dsonar.language=java
-          -Dsonar.java.binaries=$WORKSPACE/sonar-test**
+
 
