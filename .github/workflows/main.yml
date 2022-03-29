@@ -36,7 +36,11 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       - run: git fetch --prune --unshallow
-
+      - name: SonarCloud Scan
+          uses: sonarsource/sonarcloud-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - run: sonar-scanner
           -Dsonar.projectKey=${{ github.event.repository.name }}
           -Dsonar.pullrequest.key=${{ github.event.number }}
