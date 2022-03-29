@@ -33,7 +33,7 @@ public class RandomController {
                 RandomStringUtils.randomNumeric(5),
                 "生成随机数字字符串"));
 
-
+        System.out.println(1/0);
         list.add(new Row("RandomStringUtils.randomAlphabetic(5)",
                 RandomStringUtils.randomAlphabetic(5),
                 "生成随机[a-z]字符串，包含大小写"));
