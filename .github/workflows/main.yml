@@ -49,5 +49,6 @@ jobs:
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
+          -Dsonar.java.binaries=$GITHUB_WORKSPACE/**
 
 
