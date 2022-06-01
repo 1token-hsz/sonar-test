@@ -27,6 +27,7 @@ public class IndexController {
         System.out.println(1/0);
         System.out.println(1/0);
         System.out.println(1/0);
+        System.out.println(1/0);
 
         jsonObject.put("welcome1", "1");
         jsonObject.put("welcome6", "6");
